@@ -39,6 +39,13 @@ imputer.set_params(keep_empty_features=True)
 imputer.fit_transform(X)
 ```
 
+3. Медиана, среднее и тд:
+
+```python
+from sklearn.impute import SimpleImputer
+imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')
+```
+
 ### Маркировка восстановленных значений
 
 ### Обработка временного признака
