@@ -59,5 +59,18 @@ df_train['Embarked'].value_counts().plot.bar()
 
 2. Одномерный метод IQR (ограничение в рамках quantile)
 
+```python
+#одномерный IQR
+
+Q1 = df_train['Fare'].quantile(0.25)
+Q3 = df_train['Fare'].quantile(0.75)
+
+IQR = Q3 - Q1
+lower = Q1 - 1.5*IQR
+upper = Q3 + 1.5*IQR
+
+df_train = df_train[(df_train['Fare'] >= lower) & (df_train['Fare'] <= upper)]
+```
+
 QuantileTransformer
 StandardScaler (реализуется в этом методе правило 3-х сигм)
